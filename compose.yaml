@@ -1,0 +1,14 @@
+services:
+  count:
+    build: .
+    container_name: count
+    ports:
+      - "${PORT:-8080}:8000"
+    environment:
+      - GREETING=${GREETING:-Привет из Docker}
+    volumes:
+      - countdata:/data
+
+volumes:
+  countdata:
+

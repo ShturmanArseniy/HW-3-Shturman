@@ -1,0 +1,16 @@
+=== Уровень 4: docker ps ===
+CONTAINER ID   IMAGE         COMMAND           CREATED          STATUS          PORTS                                         NAMES
+39dd9bf37212   counter-app   "python app.py"   31 seconds ago   Up 30 seconds   0.0.0.0:8080->8000/tcp, [::]:8080->8000/tcp   counter
+=== Уровень 4: GET (count 0) ===
+{"greeting": "Привет из Docker", "count": 0, "hostname": "39dd9bf37212", "storage": "sqlite"}
+=== Уровень 4: POST /increment ===
+{"greeting": "Привет из Docker", "count": 1, "hostname": "39dd9bf37212", "storage": "sqlite"}
+=== Уровень 4: GET (count 1) ===
+{"greeting": "Привет из Docker", "count": 1, "hostname": "39dd9bf37212", "storage": "sqlite"}
+=== Уровень 4: /data ===
+drwxr-xr-x 1 root root 4096 Nov 21 11:29 /data
+=== Уровень 4: docker logs counter ===
+2026-11-21 11:29:22,954 listening port=8000 storage=sqlite
+2026-11-21 11:29:53,422 http 172.18.0.1 "GET / HTTP/1.1" 200 -
+2026-11-21 11:29:53,433 http 172.18.0.1 "POST /increment HTTP/1.1" 200 -
+2026-11-21 11:29:53,441 http 172.18.0.1 "GET / HTTP/1.1" 200 -
